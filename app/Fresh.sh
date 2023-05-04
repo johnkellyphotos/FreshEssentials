@@ -36,7 +36,7 @@ create_project() {
   getting_started=(".config.json" ".htaccess" "model/UserModel.php" "views/template/webpage.tpl" "views/template/nav-menu.tpl" "views/template/footer.tpl" "views/components/select.tpl" "views/components/submit.tpl" "views/components/table.tpl" "views/components/text.tpl" "controller/HomeController.php")
   for file in "${getting_started[@]}"; do
     echo "Loading file '$file'."
-    mv src/_getting-started/__"$file" ./"$file"
+    cp src/_getting-started/__"$file" ./"$file"
   done
 }
 
