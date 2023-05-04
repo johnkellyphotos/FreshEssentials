@@ -1,5 +1,0 @@
-(function () {
-    let App = {
-
-    };
-})();

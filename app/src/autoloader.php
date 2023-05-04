@@ -1,7 +1,7 @@
 <?php
 
 /** @noinspection PhpIncludeInspection */
-require_once APP_DIRECTORY . "/lib/exception/MissingClassException.php";
+require_once APP_DIRECTORY . "/src/lib/exception/MissingClassException.php";
 
 use exception\MissingClassException;
 use src\lib\AppError;
