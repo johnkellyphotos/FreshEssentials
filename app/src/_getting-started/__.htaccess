@@ -1,0 +1,13 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+SetEnv APP_GET_PARAMETER_FOR_PATH APP_UrlPath__
+SetEnvIf Request_URI ^.*$ APP_GET_PARAMETER_FOR_PATH__=APP_UrlPath__
+
+RewriteCond %{REQUEST_URI} !/src/init.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [L,R=301]
+
+RewriteCond %{REQUEST_URI} !/src/init.php
+RewriteRule ^(.*)$ /src/init.php?%{ENV:APP_GET_PARAMETER_FOR_PATH__}=$1 [QSA,L]

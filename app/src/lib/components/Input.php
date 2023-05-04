@@ -45,12 +45,6 @@ class Input extends App
     }
 
     /* @throws SmartyException */
-    public static function file(array $data = []): string
-    {
-        return self::_smarty($data, 'file')->fetch('components/file.tpl');
-    }
-
-    /* @throws SmartyException */
     public static function submit(array $data = []): string
     {
         return self::_smarty($data, 'submit')->fetch('components/submit.tpl');
