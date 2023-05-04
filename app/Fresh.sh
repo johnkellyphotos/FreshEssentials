@@ -52,6 +52,9 @@ case $argument in
 "--create")
   create_project
   ;;
+"--update")
+  echo "Nothing to update."
+  ;;
 *)
   echo "Invalid parameter '$argument'. use --help for help."
   ;;
