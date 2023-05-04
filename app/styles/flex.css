@@ -1,0 +1,31 @@
+@media screen and (min-width: 1400px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}
+
+@media screen and (min-width: 992px) {
+
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 576px) {
+
+}
+
+.flex {
+    display: flex;
+    justify-content: flex-start;
+    line-height: 1.3em;
+}
+
+.flex .flex-fill {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1em;
+}

@@ -1,0 +1,63 @@
+#page-content {
+    width: 100%;
+    margin: 0;
+    min-height: 60vh;
+}
+
+#page-content .container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 2em 1em;
+    box-sizing: border-box;
+    overflow: auto;
+    margin: auto;
+}
+
+#page-content .container p {
+    text-indent: 1em;
+}
+
+#page-content h1, #page-content h2, #page-content h3 {
+    margin: 1em 0;
+}
+
+#page-content h1 {
+    text-align: center;
+}
+
+.app-name {
+    color: #Cd5463;
+    letter-spacing: 0.025em;
+    font-family: 'Rubik', sans-serif;
+    font-weight: inherit;
+    font-stretch: expanded;
+}
+
+#page-content .container .form-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    padding: 1em;
+    margin: 2em 0;
+}
+
+#page-content a, nav a, footer a {
+    color: #3b71ca;
+    text-decoration: none;
+}
+
+.directory-tree {
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    padding: 1em;
+    margin: 2em 0;
+}
+
+.directory-tree ul li {
+    padding: 0.4em 0;
+}
+
+.text-center {
+    text-align: center;
+}
