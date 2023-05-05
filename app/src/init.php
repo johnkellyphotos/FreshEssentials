@@ -3,12 +3,13 @@
 set_error_handler(
 /**
  * @throws ErrorException
- */ function ($errorNo, $errorStr, $errorFile, $errorLine) {
+ */ function ($errorNo, $errorStr, $errorFile, $errorLine)
+{
     throw new ErrorException($errorStr, $errorNo, 0, $errorFile, $errorLine);
 }
 );
 
-define("APP_DIRECTORY", $_SERVER['DOCUMENT_ROOT'] ?? '');
+define("APP_DIRECTORY", $_SERVER[ 'DOCUMENT_ROOT' ] ?? '');
 
 /** @noinspection PhpIncludeInspection */
 require_once APP_DIRECTORY . "/src/config.php";

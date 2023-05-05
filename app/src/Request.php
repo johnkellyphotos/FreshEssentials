@@ -8,7 +8,7 @@ class Request
 {
     private array $get;
     private array $post;
-
+    
     public readonly string $controller;
     public readonly string $action;
     public readonly string $queryString;
@@ -16,7 +16,7 @@ class Request
     public readonly string $path;
     public readonly array $paths;
     public readonly array $arguments;
-
+    
     public function __construct()
     {
         $this->_configure();
@@ -24,7 +24,7 @@ class Request
         $this->post = $_POST;
         $this->_setRequestParametersByType();
     }
-
+    
     private function _createPathComponents(): void
     {
         $pathComponents = array_filter(explode('/', $this->path)) ?? [];
@@ -57,22 +57,22 @@ class Request
         $this->arguments = $arguments;
         $this->paths = $paths;
     }
-
+    
     private function _configure(): void
     {
-        $this->rawUrl = $_GET[getenv('APP_GET_PARAMETER_FOR_PATH') ?? null] ?? '';
+        $this->rawUrl = $_GET[ getenv('APP_GET_PARAMETER_FOR_PATH') ?? null ] ?? '';
         $this->path = substr($this->rawUrl, strpos($this->rawUrl, "?"));
         $this->queryString = substr($this->rawUrl, 0, strpos($this->rawUrl, "?"));
-
+        
         $this->_createPathComponents();
-        unset($_GET[getenv('APP_GET_PARAMETER_FOR_PATH')]);
+        unset($_GET[ getenv('APP_GET_PARAMETER_FOR_PATH') ]);
     }
-
+    
     private function _setRequestParametersByType(): void
     {
         foreach ([$this->get, $this->post] as &$request) {
             foreach ($request as $key => $value) {
-                $request[$key] = match (true) {
+                $request[ $key ] = match (true) {
                     strtolower($value) == 'null' => null,
                     strtolower($value) == 'true' => true,
                     strtolower($value) == 'false' => false,
@@ -84,20 +84,20 @@ class Request
         }
         unset($request);
     }
-
+    
     public function get(?string $key = null): mixed
     {
         if (empty($key)) {
             return $this->get;
         }
-        return $this->get[$key] ?? null;
+        return $this->get[ $key ] ?? null;
     }
-
+    
     public function post(?string $key = null): mixed
     {
         if (empty($key)) {
             return $this->post;
         }
-        return $this->post[$key] ?? null;
+        return $this->post[ $key ] ?? null;
     }
 }
