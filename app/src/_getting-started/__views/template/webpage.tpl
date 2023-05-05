@@ -9,7 +9,8 @@
 	<body>
         {include file="./nav-menu.tpl"}
 		<div>
-			<h1>{$message}</h1>
+			<p>hi</p>
+            {include file="../$controllerName/$view"}
 		</div>
         {include file="./footer.tpl"}
 	</body>
