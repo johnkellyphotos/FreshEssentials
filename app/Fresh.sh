@@ -10,7 +10,7 @@ clean_project() {
     for _directory in "${directories[@]}"; do
       rm -R "$_directory"
     done
-    files=(".htaccess" ".config.json")
+    files=(".htaccess" ".config.json" "index.php")
     for _file in "${files[@]}"; do
       rm "$_file"
     done
@@ -33,7 +33,7 @@ create_project() {
     mkdir -p "$_directory"
   done
 
-  getting_started=(".config.json" ".htaccess" "model/UserModel.php" "views/template/webpage.tpl" "views/template/nav-menu.tpl" "views/template/footer.tpl" "views/components/select.tpl" "views/components/submit.tpl" "views/components/table.tpl" "views/components/text.tpl" "controller/HomeController.php")
+  getting_started=(".config.json" ".htaccess" "index.php" "model/UserModel.php" "views/template/webpage.tpl" "views/template/nav-menu.tpl" "views/template/footer.tpl" "views/components/select.tpl" "views/components/submit.tpl" "views/components/table.tpl" "views/components/text.tpl" "views/App/forbidden.tpl" "views/App/internal-server-error.tpl" "views/App/page-not-found.tpl" "views/Home/index.tpl" "controller/HomeController.php")
   for file in "${getting_started[@]}"; do
     echo "Loading file '$file'."
     cp src/_getting-started/__"$file" ./"$file"
