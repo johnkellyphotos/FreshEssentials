@@ -1,3 +1,3 @@
 <nav>
-	<a href="#">Fresh!</a>
+	<a href="/">Fresh!</a>
 </nav>

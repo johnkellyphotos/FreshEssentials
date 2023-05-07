@@ -1,6 +1,6 @@
 <footer>
 	<div>
-		<p>Your footer goes here...</p>
-		<p>Or anything else!</p>
+		<p>Fresh</p>
+		<p><a href="https://github.com/johnkellyphotos/FreshEssentials">GitHub</a></p>
 	</div>
 </footer>

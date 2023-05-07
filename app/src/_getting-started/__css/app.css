@@ -1,6 +1,7 @@
 * {
 	box-sizing: border-box;
 	font-size: 1em;
+	font-family: 'Varela Round', sans-serif;
 }
 
 html, body {
@@ -12,10 +13,17 @@ h1 {
 	text-align: center;
 }
 
-nav {
+nav, footer {
 	background: #eee;
+	padding: 1em;
 }
 
-footer {
-	background: #eee;
+a {
+	color: #007bff;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #0056b3;
+	text-decoration: underline;
 }
