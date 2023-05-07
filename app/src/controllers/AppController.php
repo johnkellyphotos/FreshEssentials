@@ -78,6 +78,11 @@ class AppController extends App
         $this->viewName = Helper::camelCaseToDashCase($viewName);
     }
 
+    public function setController(?string $controllerName): void
+    {
+        $this->controllerName = $controllerName;
+    }
+    
     public function setHeader(string $header): void
     {
         $this->header = $header;

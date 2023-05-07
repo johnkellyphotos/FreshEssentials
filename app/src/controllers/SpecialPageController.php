@@ -21,7 +21,8 @@ trait SpecialPageController
 
     public function internalServerError(Throwable $e): array
     {
-        $this->setView('internal-server-error', true);
+        $this->setController('App');
+        $this->setView('internal-server-error');
         $this->setHeader("HTTP/1.0 500 Internal Server Error");
         return [
             'message' => $e->getMessage(),
