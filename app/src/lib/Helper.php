@@ -38,6 +38,10 @@ class Helper
     ])] public static function deconstructURL(string $urlString): array
     {
         $urls = explode('/', $urlString);
+        if (empty($urls[0])) {
+            unset($urls[0]);
+            $urls = array_values($urls);
+        }
         $url = [
             'controllerName' => ucfirst(Helper::dashCaseToCamelCase(!empty($urls[0]) ? $urls[0] : 'Home')),
             'controller' => "\controller\\" . ucfirst(
@@ -58,7 +62,7 @@ class Helper
         return [
             'name' => APP_NAME,
             'html' => '<span class="app-name">' . APP_NAME . '</span>',
-            'version' => '1.01',
+            'version' => APP_VERSION,
         ];
     }
 
@@ -124,10 +128,10 @@ class Helper
 
     public static function getURLPath(): string
     {
-        return
-            !empty($_GET[getenv('APP_GET_PARAMETER_FOR_PATH')]) ? $_GET[getenv(
+        return $_SERVER['REQUEST_URI'] ??
+            (!empty($_GET[getenv('APP_GET_PARAMETER_FOR_PATH')]) ? $_GET[getenv(
                 'APP_GET_PARAMETER_FOR_PATH'
-            )] : DEFAULT_CONTROLLER;
+            )] : DEFAULT_CONTROLLER);
     }
 
     public static function classBaseName(string $class): string
@@ -153,5 +157,37 @@ class Helper
             return null;
         }
         return htmlspecialchars($string);
+    }
+
+    public static function toCodeHTML(string $string): string
+    {
+        $regex = '/\bfunction\s+(\w+)\s*\(/';
+        $string = preg_replace_callback($regex, function ($matches) {
+            return str_replace($matches[1], "<span style='color:#e3e16b'>" . $matches[1] . "</span>", $matches[0]);
+        }, $string);
+
+        $string = preg_replace_callback('/(\$)\w+/', function ($matches) {
+            return "<span style='color:#d58ced'>" . $matches[0] . "</span>";
+        }, $string);
+
+        $orangeWords = [
+            'public',
+            'static',
+            'function',
+            'void',
+            'int',
+            'string',
+            'array',
+            'mixed',
+            'null',
+        ];
+
+        $html_start = "<span style='color:#EE9922'>";
+        $html_end = "</span>";
+
+        foreach ($orangeWords as $word) {
+            $string = str_replace($word, $html_start . $word . $html_end, $string);
+        }
+        return $string;
     }
 }

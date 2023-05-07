@@ -7,7 +7,6 @@ use src\lib\Helper;
 
 try {
     ['controller' => $controller, 'controllerName' => $controllerName, 'action' => $action] = Helper::deconstructURL(Helper::getURLPath());
-
     if (class_exists($controller)) {
         $Controller = new $controller();
         if (method_exists($Controller, $action)) {

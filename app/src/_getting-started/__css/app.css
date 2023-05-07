@@ -80,3 +80,9 @@ table tbody {
 	margin-left: auto !important;
 	margin-right: auto !important;
 }
+
+.php-code {
+	background: #333;
+	border-radius: 0.25em;
+	color: #ddd;
+}
