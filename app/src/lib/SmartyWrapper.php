@@ -27,10 +27,7 @@ trait SmartyWrapper
         $this->smarty->assign(
             'AppCSS',
             Helper::loadCssFiles([
-                'App',
-                'code-styles',
-                'forms-and-inputs',
-                'flex',
+                'app',
             ])
         );
         $this->smarty->assign('AppJs', Helper::loadJsScripts(['App']));

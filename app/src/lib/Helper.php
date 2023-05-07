@@ -89,11 +89,11 @@ class Helper
     {
         $css = '';
         foreach ($files as $file) {
-            if (!file_exists(APP_BASE_DIRECTORY . "styles/$file.css")) {
+            if (!file_exists(APP_BASE_DIRECTORY . "css/$file.css")) {
                 AppError::log('Unable to load css file. File does not exists: ' . $file);
                 continue;
             }
-            $css .= file_get_contents(APP_BASE_DIRECTORY . "styles/$file.css");
+            $css .= file_get_contents(APP_BASE_DIRECTORY . "css/$file.css");
         }
         return Helper::minifyCss($css);
     }
