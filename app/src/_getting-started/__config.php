@@ -68,10 +68,10 @@ const APP_DOCUMENTATION_DIRECTORY = APP_DIRECTORY . "/documentation/";
  */
 
 /* The smarty compiled files directory */
-const SMARTY_COMPILED = "../smarty-4.3.1/compiled";
+const SMARTY_COMPILED = "smarty-4.3.1/compiled";
 
 /* The smarty config directory */
-const SMARTY_CONFIG = "../smarty-4.3.1/config";
+const SMARTY_CONFIG = "smarty-4.3.1/config";
 
 /* The smarty template cache directory */
-const SMARTY_TEMPLATE_CACHE = "../smarty-4.3.1/template_cache";
+const SMARTY_TEMPLATE_CACHE = "smarty-4.3.1/template_cache";

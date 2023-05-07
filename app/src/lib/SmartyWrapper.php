@@ -10,9 +10,9 @@ trait SmartyWrapper
     public function configureSmarty(): void
     {
         $this->smarty->setTemplateDir(APP_VIEW_DIRECTORY);
-        $this->smarty->setCompileDir(APP_BASE_DIRECTORY . SMARTY_COMPILED);
-        $this->smarty->setConfigDir(APP_BASE_DIRECTORY . SMARTY_CONFIG);
-        $this->smarty->setCacheDir(APP_BASE_DIRECTORY . SMARTY_TEMPLATE_CACHE);
+        $this->smarty->setCompileDir(APP_PLUGIN_DIRECTORY . SMARTY_COMPILED);
+        $this->smarty->setConfigDir(APP_PLUGIN_DIRECTORY . SMARTY_CONFIG);
+        $this->smarty->setCacheDir(APP_PLUGIN_DIRECTORY . SMARTY_TEMPLATE_CACHE);
     }
 
 
