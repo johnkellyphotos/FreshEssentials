@@ -26,7 +26,7 @@ clean_project() {
 create_project() {
   echo "Creating project..."
 
-  directories=("controller" "lib" "lib/components" "model" "scripts" "styles" "views" "views/template" "views/Home" "views/components" "views/App")
+  directories=("controller" "lib" "lib/components" "model" "scripts" "styles" "views" "views/template" "views/Home" "views/components" "views/App" "css")
 
   for _directory in "${directories[@]}"; do
     echo "Creating '$_directory' directory."
