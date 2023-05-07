@@ -10,7 +10,7 @@ clean_project() {
     for _directory in "${directories[@]}"; do
       rm -R "$_directory"
     done
-    files=(".htaccess" ".config.json" "index.php")
+    files=(".htaccess" ".config.json" "index.php" "config.php")
     for _file in "${files[@]}"; do
       rm "$_file"
     done
