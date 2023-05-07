@@ -62,3 +62,16 @@ const APP_PLUGIN_DIRECTORY = APP_DIRECTORY . "/plugin/";
 
 /* The directory for application documentation */
 const APP_DOCUMENTATION_DIRECTORY = APP_DIRECTORY . "/documentation/";
+
+/**
+ * @SMARTY PATHS
+ */
+
+/* The smarty compiled files directory */
+const SMARTY_COMPILED = "smarty-4.3.1/compiled";
+
+/* The smarty config directory */
+const SMARTY_CONFIG = "smarty-4.3.1/config";
+
+/* The smarty template cache directory */
+const SMARTY_TEMPLATE_CACHE = "smarty-4.3.1/template_cache";

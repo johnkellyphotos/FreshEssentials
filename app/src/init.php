@@ -12,7 +12,7 @@ set_error_handler(
 define("APP_DIRECTORY", $_SERVER[ 'DOCUMENT_ROOT' ] ?? '');
 
 /** @noinspection PhpIncludeInspection */
-require_once APP_DIRECTORY . "/src/config.php";
+require_once APP_DIRECTORY . "/config.php";
 
 if (ENABLE_ERRORS) {
     ini_set('display_errors', 1);
