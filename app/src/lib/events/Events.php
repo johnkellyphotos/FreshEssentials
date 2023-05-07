@@ -2,37 +2,39 @@
 
 namespace src\lib\events;
 
-trait Events
+use src\controllers\AppController;
+
+class Events
 {
     protected EventType $eventType;
 
     protected static array $__appEventList = [];
 
-    protected function dispatchEvent(EventType $eventType): void
+    public static function dispatchEvent(EventType $eventType, ?AppController $environment = null): void
     {
         $invoker = get_called_class() . "::" . debug_backtrace()[1]['function'] . "()" ?? null;
         /** @var Event $event */
         foreach (self::$__appEventList as $event) {
             if ($event->getType() == $eventType) {
                 $event->setInvokingFunctionName($invoker);
-                $event->dispatch($this);
+                $event->dispatch($environment);
             }
         }
     }
 
-    protected function getEvents(): array
+    protected static function getEvents(): array
     {
         return self::$__appEventList;
     }
 
-    protected function addEventListener(EventType $eventType, callable $callback): bool
+    public static function addEventListener(EventType $eventType, callable $callback): bool
     {
         $eventId = self::generateEventId();
-        self::$__appEventList[$eventId] = new Event($eventType, $callback, $this);
+        self::$__appEventList[$eventId] = new Event($eventType, $callback);
         return $eventId;
     }
 
-    private function generateEventId(): int
+    private static function generateEventId(): int
     {
         return floor(microtime(true) * 1000) . rand(10000, 99999);
     }

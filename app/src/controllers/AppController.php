@@ -82,7 +82,7 @@ class AppController extends App
     {
         $this->controllerName = $controllerName;
     }
-    
+
     public function setHeader(string $header): void
     {
         $this->header = $header;

@@ -3,6 +3,8 @@
 
 namespace src\controllers;
 
+use src\lib\events\Events;
+use src\lib\events\EventType;
 use Throwable;
 
 trait SpecialPageController
@@ -21,6 +23,7 @@ trait SpecialPageController
 
     public function internalServerError(Throwable $e): array
     {
+        Events::dispatchEvent(EventType::ERROR, $this);
         $this->setController('App');
         $this->setView('internal-server-error');
         $this->setHeader("HTTP/1.0 500 Internal Server Error");
