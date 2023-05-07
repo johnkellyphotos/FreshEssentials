@@ -12,7 +12,7 @@
 	</head>
 	<body>
         {include file="./nav-menu.tpl"}
-		<div>
+		<div id="page-content">
             {include file="../$controllerName/$view"}
 		</div>
         {include file="./footer.tpl"}

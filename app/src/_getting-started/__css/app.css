@@ -9,13 +9,21 @@ html, body {
 	padding: 0;
 }
 
+body #page-content {
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+}
+
 h1 {
+	font-size: 2.2em;
 	text-align: center;
 }
 
 nav, footer {
 	background: #eee;
 	padding: 1em;
+	text-align: center;
 }
 
 a {
@@ -26,4 +34,49 @@ a {
 a:hover {
 	color: #0056b3;
 	text-decoration: underline;
+}
+
+table td {
+	text-align: center;
+}
+
+.check::before {
+	color: #2C2;
+	content: "\2713";
+	font-weight: bold;
+	display: inline-block;
+	margin: 0 1em;
+}
+
+table {
+	width: 100%;
+	margin-bottom: 1rem;
+	color: #212529;
+	border-collapse: collapse;
+}
+
+table th,
+table td {
+	padding: 0.75rem;
+	border-top: 1px solid #dee2e6;
+	width: 50%;
+}
+
+table thead {
+	border-top: none;
+	font-size: 1.2em;
+}
+
+table th {
+	font-weight: 700;
+}
+
+table tbody {
+	border-top: 2px solid #dee2e6;
+	width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
