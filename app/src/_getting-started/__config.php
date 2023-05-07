@@ -58,7 +58,7 @@ const APP_SRC_DIRECTORY = APP_DIRECTORY . "/src/";
 const APP_VIEW_DIRECTORY = APP_DIRECTORY . "/views/";
 
 /* The directory for third party plugins */
-const APP_PLUGIN_DIRECTORY = APP_DIRECTORY . "/plugin/";
+const APP_PLUGIN_DIRECTORY = APP_DIRECTORY . "/src/plugin/";
 
 /* The directory for application documentation */
 const APP_DOCUMENTATION_DIRECTORY = APP_DIRECTORY . "/documentation/";

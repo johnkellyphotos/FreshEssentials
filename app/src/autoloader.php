@@ -20,7 +20,7 @@ spl_autoload_register(function ($class)
             '/controller/',
             '/lib/',
             '/model/',
-            '/plugin/',
+            '/src/plugin/',
         ];
         foreach ($possiblePaths as $possiblePath) {
             $fullClassPath = APP_DIRECTORY . $possiblePath . $class . ".php";
