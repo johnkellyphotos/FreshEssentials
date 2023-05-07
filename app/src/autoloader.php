@@ -32,8 +32,5 @@ spl_autoload_register(function ($class)
         throw new MissingClassException("Unable to find lib: " . $class);
     } catch (MissingClassException $e) {
         AppError::log($e->getMessage(), ['lib' => $originalClass]);
-        $Controller = new AppController();
-        $Controller->display($Controller->internalServerError($e));
-        exit;
     }
 });
