@@ -4,7 +4,7 @@ Fresh is a lightweight, minimalistic PHP framework built using PHP 8.2 and Smart
 
 ## Getting started
 
-Fresh is designed to be run on an Apache server, but you can run it through localhost as well if your local host has support for emulating .htaccess files.
+Fresh uses .htaccess and therefore is designed to be run on an Apache server. However, you can run it without .htaccess using the 'index.php' file in the app root directory to emulate .htaccess in non-Apache environments.
 
 1. Navigate to the directory you want Fresh to be installed in on your machine. In most cases, this will be in your website's root folder.
 2. run `git init`.
