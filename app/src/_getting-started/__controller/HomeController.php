@@ -12,7 +12,7 @@ class HomeController extends AppController
 	{
 		parent::__construct();
         Events::addEventListener(EventType::ERROR, function() {
-            echo 'When an error occurs inside this action, this function will be invoked.';
+            echo 'When an error occurs inside this controller, this function will be invoked.';
         });
 	}
 	
