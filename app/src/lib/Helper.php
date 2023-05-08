@@ -161,13 +161,13 @@ class Helper
 
     public static function colorizePHPForHTML(string $string): string
     {
+        // encode less than signs
+        $string = str_replace('<?', '&lt;?', $string);
+
         // color code function and method names
         $string = preg_replace_callback('/\bfunction\s+(\w+)\s*\(/', function ($matches) {
             return str_replace($matches[1], "<span style='color:#e3e16b'>" . $matches[1] . "</span>", $matches[0]);
         }, $string);
-
-        // encode less than signs
-        $string = str_replace('<', '&lt;', $string);
 
         // color code variable names
         $string = preg_replace_callback('/(\$)\w+/', function ($matches) {
