@@ -161,6 +161,7 @@ class Helper
 
     public static function toCodeHTML(string $string): string
     {
+        $string = str_replace('<', '&lt;', $string);
         $regex = '/\bfunction\s+(\w+)\s*\(/';
         $string = preg_replace_callback($regex, function ($matches) {
             return str_replace($matches[1], "<span style='color:#e3e16b'>" . $matches[1] . "</span>", $matches[0]);
@@ -171,6 +172,8 @@ class Helper
         }, $string);
 
         $orangeWords = [
+            '&lt;?php',
+            'namespace',
             'public',
             'static',
             'function',
@@ -180,6 +183,9 @@ class Helper
             'array',
             'mixed',
             'null',
+            'class',
+            'extends',
+            'use',
         ];
 
         $html_start = "<span style='color:#EE9922'>";
