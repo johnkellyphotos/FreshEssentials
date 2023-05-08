@@ -41,7 +41,7 @@ trait SmartyWrapper
         try {
             if (!isset($this->smarty->registered_plugins['block']['php'])) {
                 $this->smarty->registerPlugin('block', 'php', function ($params, $content) {
-                    return isset($content) ? Helper::toCodeHTML($content) : '';
+                    return isset($content) ? Helper::colorizePHPForHTML($content) : '';
                 });
             }
         } catch (Throwable $e) {

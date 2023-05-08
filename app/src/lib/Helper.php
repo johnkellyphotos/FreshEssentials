@@ -159,19 +159,23 @@ class Helper
         return htmlspecialchars($string);
     }
 
-    public static function toCodeHTML(string $string): string
+    public static function colorizePHPForHTML(string $string): string
     {
+        // encode less than signs
         $string = str_replace('<', '&lt;', $string);
-        $regex = '/\bfunction\s+(\w+)\s*\(/';
-        $string = preg_replace_callback($regex, function ($matches) {
+
+        // color code function and method names
+        $string = preg_replace_callback('/\bfunction\s+(\w+)\s*\(/', function ($matches) {
             return str_replace($matches[1], "<span style='color:#e3e16b'>" . $matches[1] . "</span>", $matches[0]);
         }, $string);
 
+        // color code variable names
         $string = preg_replace_callback('/(\$)\w+/', function ($matches) {
             return "<span style='color:#d58ced'>" . $matches[0] . "</span>";
         }, $string);
 
-        $orangeWords = [
+        // highlight remaining keywords
+        $keyWords = [
             '&lt;?php',
             'namespace',
             'public',
@@ -188,11 +192,8 @@ class Helper
             'use',
         ];
 
-        $html_start = "<span style='color:#EE9922'>";
-        $html_end = "</span>";
-
-        foreach ($orangeWords as $word) {
-            $string = str_replace($word, $html_start . $word . $html_end, $string);
+        foreach ($keyWords as $word) {
+            $string = str_replace($word, "<span style='color:#EE9922'>" . $word . "</span>", $string);
         }
         return $string;
     }
