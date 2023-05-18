@@ -19,8 +19,10 @@ class AppController extends App
     private Smarty $smarty;
 
     private string $controllerName;
+    private string $description;
     private string $header;
     protected bool $renderView = true;
+    private string $title;
     protected string $viewName;
     protected array $viewData = [];
 
@@ -109,5 +111,15 @@ class AppController extends App
             'table' => $table,
         ]);
         exit;
+    }
+
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
     }
 }

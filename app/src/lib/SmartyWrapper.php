@@ -19,8 +19,12 @@ trait SmartyWrapper
     private function assignSmartyBaseVariables(): void
     {
         $this->smarty->assign(
-            'pageTitle',
-            Helper::clean(Helper::toSpaceCase($this->viewName != DEFAULT_ACTION ? $this->viewName : $this->controllerName))
+            'page', [
+                'title' => Helper::clean($this->title ?? Helper::toSpaceCase($this->viewName != DEFAULT_ACTION ? $this->viewName : $this->controllerName)),
+                'description' => Helper::clean($this->description ?? (APP_NAME . ' - ' . Helper::toSpaceCase(
+                            $this->viewName != DEFAULT_ACTION ? $this->viewName : $this->controllerName
+                        )))
+            ]
         );
         $this->smarty->assign('controllerName', Helper::clean($this->controllerName));
         $this->smarty->assign('view', Helper::clean($this->viewName) . '.tpl');
@@ -31,12 +35,6 @@ trait SmartyWrapper
             ])
         );
         $this->smarty->assign('AppJs', Helper::loadJsScripts(['App']));
-        $this->smarty->assign(
-            'pageDescription',
-            Helper::clean('Welcome to ' . APP_NAME . ' - ' . Helper::toSpaceCase(
-                $this->viewName != DEFAULT_ACTION ? $this->viewName : $this->controllerName
-            ))
-        );
 
         try {
             if (!isset($this->smarty->registered_plugins['block']['php'])) {
