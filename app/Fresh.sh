@@ -52,8 +52,6 @@ create_project() {
       new_name="${file%}.template"
       mv "$file" "$new_name"
   done
-
-  chmod -R 755 src/_getting-started
 }
 
 argument="$1"
