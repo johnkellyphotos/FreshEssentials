@@ -1,7 +1,7 @@
 #!/bin/bash
 
 clean_project() {
-  echo -n "Are you sure you want to delete this project? [y/n]: "
+  echo -n "Are you sure you want to delete this project? This will delete any new files you have added or changes you have made, and cannot be undone. [y/n]: "
   read -r answer
 
   case ${answer:0:1} in
@@ -14,6 +14,13 @@ clean_project() {
     for _file in "${files[@]}"; do
       rm "$_file"
     done
+
+    getting_started_directory="src/_getting-started/"
+    find "$getting_started_directory" -type f | while read -r file; do
+        new_name="${file%.template}"
+        mv "$file" "$new_name"
+    done
+
     echo "Project has been deleted"
     ;;
   *)
@@ -38,6 +45,15 @@ create_project() {
     echo "Loading file '$file'."
     cp src/_getting-started/__"$file" ./"$file"
   done
+
+  getting_started_directory="src/_getting-started/"
+
+  find "$getting_started_directory" -type f | while read -r file; do
+      new_name="${file%}.template"
+      mv "$file" "$new_name"
+  done
+
+  chmod -R 755 src/_getting-started
 }
 
 argument="$1"
