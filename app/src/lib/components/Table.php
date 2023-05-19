@@ -2,8 +2,8 @@
 
 namespace lib\components;
 
+use lib\AppError;
 use Smarty;
-use src\lib\AppError;
 use src\lib\Helper;
 use Throwable;
 

@@ -3,11 +3,12 @@
 namespace src\controllers;
 
 use Exception;
+use lib\AppError;
 use JetBrains\PhpStorm\NoReturn;
 use Smarty;
 use SmartyException;
 use src\{App, Request, Session};
-use src\lib\{AppError, Helper, SmartyWrapper};
+use src\lib\{Helper, SmartyWrapper};
 
 class AppController extends App
 {

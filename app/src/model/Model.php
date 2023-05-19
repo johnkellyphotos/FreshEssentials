@@ -2,11 +2,11 @@
 
 namespace model;
 
+use lib\AppError;
 use lib\model\Query;
 use lib\model\QueryType;
 use PDO;
 use PDOException;
-use src\lib\AppError;
 use src\lib\Config;
 use src\lib\Helper;
 
