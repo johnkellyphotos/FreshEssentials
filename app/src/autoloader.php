@@ -4,7 +4,7 @@
 require_once APP_DIRECTORY . "/src/lib/exception/MissingClassException.php";
 
 use exception\MissingClassException;
-use src\lib\AppError;
+use lib\AppError;
 
 spl_autoload_register(function ($class)
 {

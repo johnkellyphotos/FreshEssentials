@@ -3,6 +3,7 @@
 namespace src\lib;
 
 use JetBrains\PhpStorm\ArrayShape;
+use lib\AppError;
 
 class Helper
 {

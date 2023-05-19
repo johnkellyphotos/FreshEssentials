@@ -1,6 +1,6 @@
 <?php
 
-namespace src\lib;
+namespace lib;
 
 use JetBrains\PhpStorm\NoReturn;
 use src\controllers\AppController;
