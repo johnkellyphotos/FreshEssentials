@@ -2,6 +2,10 @@
 
 Fresh is a lightweight, minimalistic PHP framework built using PHP 8.2 and Smarty 4. Fresh is a simple MVC style framework for PHP projects that is easy to use and understand.
 
+## License
+
+This project is licensed under the [MIT License](LICENSE). See the [LICENSE](LICENSE) file for more details.
+
 ## Getting started
 
 Fresh uses .htaccess and therefore is designed to be run on an Apache server. However, you can run it without .htaccess using the 'index.php' file in the app root directory to emulate .htaccess in non-Apache environments.
