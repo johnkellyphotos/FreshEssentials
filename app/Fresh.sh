@@ -60,16 +60,15 @@ argument="$1"
 
 case $argument in
 "--help")
-  echo "help"
+  echo "    ./Fresh.sh --create    to create a new project."
+  echo "    ./Fresh.sh --clean     to clean your project (reset entire project)."
+  echo "    ./Fresh.sh --help      for help."
   ;;
 "--clean")
   clean_project
   ;;
 "--create")
   create_project
-  ;;
-"--update")
-  echo "Nothing to update."
   ;;
 *)
   echo "Invalid parameter '$argument'. use --help for help."
