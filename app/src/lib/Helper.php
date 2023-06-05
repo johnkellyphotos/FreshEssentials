@@ -38,6 +38,11 @@ class Helper
         'arguments' => "string[]",
     ])] public static function deconstructURL(string $urlString): array
     {
+        if (str_contains($urlString, '?')) {
+            $strippedString = strstr($urlString, '?', true);
+            $urlString = substr($strippedString, 0, -1);
+        }
+        
         $urls = explode('/', $urlString);
         if (empty($urls[0])) {
             unset($urls[0]);

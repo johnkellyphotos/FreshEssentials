@@ -4,8 +4,15 @@ RewriteBase /
 SetEnv APP_GET_PARAMETER_FOR_PATH APP_UrlPath__
 SetEnvIf Request_URI ^.*$ APP_GET_PARAMETER_FOR_PATH__=APP_UrlPath__
 
+# Exclude existing files
+RewriteCond %{REQUEST_FILENAME} -f
+# Exclude PHP files
+RewriteCond %{REQUEST_URI} !\.php$
+RewriteRule ^ - [L]
+
 RewriteCond %{REQUEST_URI} !/src/init.php
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\?
 RewriteCond %{REQUEST_URI} !(.*)/$
 RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [L,R=301]
 

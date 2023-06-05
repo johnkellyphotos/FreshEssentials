@@ -7,7 +7,7 @@ putenv('APP_GET_PARAMETER_FOR_PATH=APP_UrlPath__');
 $requestUri = $_SERVER[ 'REQUEST_URI' ];
 
 // If the request URI does not end with a slash, redirect to a version of the URL that does
-if (!preg_match('/\/$/', $requestUri)) {
+if (!preg_match('/\/$/', $requestUri) && empty($_GET) && !str_ends_with($requestUri, '?')) {
     header('Location: ' . $requestUri . '/');
     exit;
 }

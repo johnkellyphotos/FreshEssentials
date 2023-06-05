@@ -61,7 +61,13 @@ class Request
     private function _configure(): void
     {
         $this->rawUrl = $_SERVER[ 'REQUEST_URI' ] ?? '';
-        $this->path = substr($this->rawUrl, strpos($this->rawUrl, "?"));
+    
+        if (str_contains($this->rawUrl, '?')) {
+            $strippedString = strstr($this->rawUrl, '?', true);
+            $this->path = substr($strippedString, 0, -1);
+        } else {
+            $this->path = $this->rawUrl;
+        }
         $this->queryString = substr($this->rawUrl, 0, strpos($this->rawUrl, "?"));
 
         $this->_createPathComponents();
