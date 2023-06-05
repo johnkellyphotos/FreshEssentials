@@ -37,6 +37,9 @@ const ENABLE_EVENTS = true; /* (boolean) */
 /* Enable or disable errors and warnings from displaying. Set to false for production applications. */
 const ENABLE_ERRORS = true; /* (boolean) */
 
+/* The path to the error log */
+const ERROR_LOG_FILE = APP_DIRECTORY . '/../error_log.txt'; /* (string) */
+
 /* Force URLs to canonicalize and appropriately set the META tag */
 const FORCE_CANONICALIZATION = false; /* (boolean) */
 
