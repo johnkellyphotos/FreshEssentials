@@ -40,7 +40,7 @@ create_project() {
     mkdir -p "app/$_directory"
   done
 
-  getting_started=(".config.json" ".htaccess" "index.php" "config.php" "model/UserModel.php" "views/template/webpage.tpl" "views/template/nav-menu.tpl" "views/template/footer.tpl" "views/components/select.tpl" "views/components/submit.tpl" "views/components/table.tpl" "views/components/text.tpl" "views/App/forbidden.tpl" "views/App/internal-server-error.tpl" "views/App/page-not-found.tpl" "views/Home/index.tpl" "controller/HomeController.php" "css/app.css" "lib/AppError.php")
+  getting_started=(".config.json" ".htaccess" "index.php" "config.php" "model/UserModel.php" "views/template/webpage.tpl" "views/template/nav-menu.tpl" "views/template/footer.tpl" "views/components/select.tpl" "views/components/submit.tpl" "views/components/table.tpl" "views/components/text.tpl" "views/App/forbidden.tpl" "views/App/internal-server-error.tpl" "views/App/page-not-found.tpl" "views/Home/index.tpl" "controller/HomeController.php" "css/app.css" "lib/AppError.php" "Lib/Routes.php")
   for file in "${getting_started[@]}"; do
     echo "Loading file '$file'."
     cp app/src/_getting-started/__"$file" "app/$file"
