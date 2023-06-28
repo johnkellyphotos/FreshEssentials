@@ -3,12 +3,13 @@
 namespace src\lib;
 
 use Exception;
+use lib\AppError;
 
 class Config
 {
     public static function fetch(string $credential): ?array
     {
-        $filename = ".config.json";
+        $filename = '.config.json';
         $path = APP_DIRECTORY . "/$filename";
 
         try {
