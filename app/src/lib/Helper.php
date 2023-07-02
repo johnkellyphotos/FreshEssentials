@@ -4,6 +4,7 @@ namespace src\lib;
 
 use JetBrains\PhpStorm\ArrayShape;
 use lib\AppError;
+use lib\Routes;
 
 class Helper
 {
@@ -42,6 +43,7 @@ class Helper
             $strippedString = strstr($urlString, '?', true);
             $urlString = substr($strippedString, 0, -1);
         }
+	    $urlString = Routes::getCustomRoutes($urlString);
         
         $urls = explode('/', $urlString);
         if (empty($urls[0])) {
