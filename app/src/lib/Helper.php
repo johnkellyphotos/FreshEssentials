@@ -40,8 +40,7 @@ class Helper
     ])] public static function deconstructURL(string $urlString): array
     {
         if (str_contains($urlString, '?')) {
-            $strippedString = strstr($urlString, '?', true);
-            $urlString = substr($strippedString, 0, -1);
+	        $urlString = strstr($urlString, '?', true);
         }
 	    $urlString = Routes::getCustomRoutes($urlString);
         
