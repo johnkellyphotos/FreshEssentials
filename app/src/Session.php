@@ -21,10 +21,10 @@ class Session
     {
         foreach ($this->session as $key => $value) {
             $request[$key] = match (true) {
-                strtolower($value) == 'null' => null,
-                strtolower($value) == 'true' => true,
-                strtolower($value) == 'false' => false,
-                Helper::isJson($value) => json_decode($value),
+                is_string($value) && strtolower($value) == 'null' => null,
+                is_string($value) && strtolower($value) == 'true' => true,
+                is_string($value) && strtolower($value) == 'false' => false,
+                is_string($value) && Helper::isJson($value) => json_decode($value),
                 is_numeric($value) => $value * 1,
                 default => $value,
             };
