@@ -79,9 +79,9 @@ class Request
         foreach ([&$this->get, &$this->post] as &$request) {
             foreach ($request as $key => $value) {
                 $request[$key] = match (true) {
-                    strtolower($value) == 'null' => null,
-                    strtolower($value) == 'true' => true,
-                    strtolower($value) == 'false' => false,
+                    strtolower($value) === 'null' => null,
+                    strtolower($value) === 'true' => true,
+                    strtolower($value) === 'false' => false,
                     Helper::isJson($value) => json_decode($value),
                     is_numeric($value) => $value * 1,
                     default => $value,
