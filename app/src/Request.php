@@ -76,7 +76,7 @@ class Request
 
     private function _setRequestParametersByType(): void
     {
-        foreach ([$this->get, $this->post] as &$request) {
+        foreach ([&$this->get, &$this->post] as &$request) {
             foreach ($request as $key => $value) {
                 $request[$key] = match (true) {
                     strtolower($value) == 'null' => null,
